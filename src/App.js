@@ -5,7 +5,7 @@ import { GlobalStyle } from "./style";
 import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   const darkModeFunction = () => {
     setDarkMode(!darkMode);

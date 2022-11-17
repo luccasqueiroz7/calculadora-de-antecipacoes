@@ -5,6 +5,7 @@ import { ResultsDiv } from "./style";
 
 const Results = () => {
   const { calculatedValue } = useContext(CalculatedValueContext);
+
   return (
     <ResultsDiv>
       <h1>
