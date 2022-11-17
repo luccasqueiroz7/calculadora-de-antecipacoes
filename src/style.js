@@ -1,6 +1,8 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const Main = styled.main`
+  width: 100vw;
+  height: 100vh;
   background-color: var(--blue-2);
 `;
 
@@ -17,6 +19,11 @@ export const GlobalStyle = createGlobalStyle`
     button {
         outline: none;
         cursor: pointer;
+    }
+    body {
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--blue-2);
     }
     :root {
         --white:  #fbfcfd;

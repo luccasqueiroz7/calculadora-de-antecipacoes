@@ -4,26 +4,13 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { CalculatedValueContext } from "../../Providers/calculatedValue";
 
-import { ButtonInvisible } from "./style";
+import { ButtonInvisible, CalculatorDiv } from "./style";
 
 const Calculator = () => {
   const { setCalculatedValue } = useContext(CalculatedValueContext);
-  /* 
-  useEffect(() => {
-    const send = (event) => {
-      const key = event.key;
-      if (key === "Enter") {
-        onSubmitFunction();
-      }
-    };
-
-    window.addEventListener("keydown", send);
-
-    return () => window.removeEventListener("keydown", send);
-  }, [calculatedValue]); */
 
   const formSchema = yup.object().shape({
     amount: yup
@@ -60,29 +47,28 @@ const Calculator = () => {
   };
 
   return (
-    <div>
+    <CalculatorDiv>
       <h1>Simule sua Antecipação</h1>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <label>
-          <h3>Informe o valor da venda*</h3>
-          <input type="text" {...register("amount")} />
+          <h3>Informe o valor da venda *</h3>
+          <input type="number" {...register("amount")} />
           {errors.amount?.message}
         </label>
         <label>
-          <h3>Em quantas parcelas*</h3>
-          <input type="text" {...register("installments")} />
+          <h3>Em quantas parcelas *</h3>
+          <input type="number" {...register("installments")} />
           {errors.installments?.message}
-          {/* <p>Máximo de 12 parcelas</p> */}
         </label>
         <label>
-          <h3>Informe o percentual de MDR*</h3>
-          <input type="text" {...register("mdr")} />
+          <h3>Informe o percentual de MDR *</h3>
+          <input type="number" {...register("mdr")} />
           {errors.mdr?.message}
         </label>
         {/* Fazer sem button */}
         <ButtonInvisible></ButtonInvisible>
       </form>
-    </div>
+    </CalculatorDiv>
   );
 };
 
