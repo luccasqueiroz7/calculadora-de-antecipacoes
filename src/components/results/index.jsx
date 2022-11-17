@@ -11,20 +11,43 @@ const Results = () => {
         VOCÊ RECEBERÁ: <hr />
       </h1>
 
-      {/* Refazer com days */}
       {calculatedValue["1"] && (
         <ul>
           <li>
-            Amanhã: <span>{calculatedValue["1"]}</span>{" "}
+            <p>Amanhã: </p>
+            <span>
+              {calculatedValue["1"].toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </span>{" "}
           </li>
           <li>
-            Em 15 dias: <span>{calculatedValue["15"]}</span>{" "}
+            <p>Em 15 dias: </p>
+            <span>
+              {calculatedValue["15"].toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </span>{" "}
           </li>
           <li>
-            Em 30 dias: <span>{calculatedValue["30"]}</span>{" "}
+            <p>Em 30 dias: </p>
+            <span>
+              {calculatedValue["30"].toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </span>{" "}
           </li>
           <li>
-            Em 90 dias: <span>{calculatedValue["90"]}</span>{" "}
+            <p>Em 90 dias: </p>
+            <span>
+              {calculatedValue["90"].toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </span>{" "}
           </li>
         </ul>
       )}

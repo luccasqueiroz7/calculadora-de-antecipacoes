@@ -21,6 +21,11 @@ export const ResultsDiv = styled.div`
   > ul > li {
     color: var(--blue-5);
     font-style: italic;
+    display: flex;
+    flex-wrap: wrap;
+    > p {
+      white-space: nowrap;
+    }
     > span {
       color: var(--blue-6);
       font-weight: bold;
@@ -48,6 +53,12 @@ export const ResultsDiv = styled.div`
         color: var(--blue-6);
         font-weight: bold;
       }
+    }
+  }
+  @media (max-width: 430px) {
+    > ul > li {
+      display: flex;
+      flex-direction: column;
     }
   }
 `;

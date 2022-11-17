@@ -17,7 +17,8 @@ const Calculator = () => {
       .number()
       .typeError("Insira um número")
       .required("Valor obrigatório")
-      .min(1000, "Valor mínimo de 1000"),
+      .min(1000, "Valor mínimo de 1000")
+      .max(100000000, "Valor máximo de 100000000"),
     installments: yup
       .number()
       .typeError("Insira um número")
@@ -26,7 +27,6 @@ const Calculator = () => {
       .integer("Insira um número inteiro")
       .max(12, "Máximo de 12 parcelas "),
     mdr: yup.number().typeError("Insira um número").required("MDR obrigatório"),
-    // days opcional
   });
 
   const {
@@ -38,8 +38,6 @@ const Calculator = () => {
   });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
-    // Refazer com days
     api
       .post("", data)
       .then((response) => setCalculatedValue(response.data))
@@ -52,20 +50,19 @@ const Calculator = () => {
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <label>
           <h3>Informe o valor da venda *</h3>
-          <input type="number" {...register("amount")} />
+          <input type="number" placeholder="R$ 0,00" {...register("amount")} />
           {errors.amount?.message}
         </label>
         <label>
           <h3>Em quantas parcelas *</h3>
-          <input type="number" {...register("installments")} />
+          <input type="number" placeholder="0" {...register("installments")} />
           {errors.installments?.message}
         </label>
         <label>
           <h3>Informe o percentual de MDR *</h3>
-          <input type="number" {...register("mdr")} />
+          <input type="number" placeholder="0%" {...register("mdr")} />
           {errors.mdr?.message}
         </label>
-        {/* Fazer sem button */}
         <ButtonInvisible></ButtonInvisible>
       </form>
     </CalculatorDiv>

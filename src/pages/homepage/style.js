@@ -9,7 +9,6 @@ export const HomepageDiv = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 15px;
-  margin-top: 20vh;
   box-shadow: 0px 0px 10px var(--grey-3);
   border-radius: 5px;
 
